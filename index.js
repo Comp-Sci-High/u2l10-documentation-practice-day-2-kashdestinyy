@@ -15,8 +15,15 @@
 // -----------------------------------------------------
 // CALL IT
 
+async function fetchPeopleInSpace(url){
+    const response = await fetch(url)
+    const data = await response.json
+    console.log(data)
+    console.log(data.people[7].name)
+}
+ let PISpace = "http://api.open-notify.org/astros.json"
 
-
+ fetchPeopleInSpace(PISpace)
 
 // -----------------------------------------------------
 // TASK 2: NASA Astronomy Picture of the Day (APOD)
@@ -32,9 +39,15 @@
 // -----------------------------------------------------
 // CALL IT
 
+async function fetchAPOD(url) {
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log(data)
+    console.log(data.url)
+}
 
-
-
+let pictureoftheDay = "https://api.nasa.gov/planetary/apod?date=2025-10-22"
+fetchAPOD(pictureoftheDay)
 
 // -----------------------------------------------------
 // TASK 3: NASA Mars Rover Photos
@@ -53,8 +66,17 @@
 // CALL IT
 
 
+async function fetching(url) {
+    const response = await fetch(url)
+    const data = response.json
+    console.log(data)
+    console.log(data.photos.length)
+    console.log(data.photos[0].camera.full_name)
+    
+}
 
-
+let mars = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2020-10-01&api_key='JCY1Cf3A8B90Ian4yOVqjfgLNsQXtZwyrUWuO5Cp'"
+fetchMarsPhotos(mars)
 
 // -----------------------------------------------------
 // TASK 4: NASA Image and Video Library
@@ -72,6 +94,16 @@
 // CALL IT
 
 
+async function fetchNasaImage(url) {
+    const response = await fetch(url)
+    const data = response.json
+    console.log(data)
+    console.log(data.collections.items.length)
+    console.log(data.ietms[0].title.href)
+    
+}
 
+let NasaImage = "https://images-api.nasa.gov/search2q='Orion Nebula'&media_type=image"
+fetchNasaImage(NasaImage)
 
 
